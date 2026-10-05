@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Django
+*.sqlite3
+.env
+
+# Virtual environment
+venv/
+backend/venv/
+
+# React / Node
+node_modules/
+frontend/node_modules/
+
+# React build
+frontend/dist/
+
+# ZIP files
+*.zip
+
+# IDE
+.vscode/
+.idea/
