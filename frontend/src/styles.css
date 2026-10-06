@@ -147,3 +147,6 @@ input:focus,textarea:focus,select:focus{outline:2px solid #8cd04a88}option{backg
 .pbtns{display:flex;gap:10px;flex-wrap:wrap;margin-top:auto;padding-top:14px}
 .pmore{display:inline-block;margin-top:8px;font-size:.9rem}
 .more{text-align:center;margin-top:40px}
+
+/* ===== v10: tighter spacing between stacked sections ===== */
+.sec2+.sec2{padding-top:0}
