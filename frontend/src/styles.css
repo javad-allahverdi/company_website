@@ -1,5 +1,7 @@
+@font-face{font-family:Yekan;src:url(/fonts/Yekan-Regular.woff2) format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:Yekan;src:url(/fonts/Yekan-Bold.woff2) format("woff2");font-weight:700;font-style:normal;font-display:swap}
 :root{--g1:#0a7a35;--g2:#2e9e3f;--g3:#8cd04a;--bg:#f4f9f3;--tx:#12301c;--card:#fff}
-*{box-sizing:border-box;margin:0}body{font-family:Vazirmatn,Tahoma,sans-serif;background:var(--bg);color:var(--tx);line-height:1.9}
+*{box-sizing:border-box;margin:0}body{font-family:Yekan,Vazirmatn,Tahoma,sans-serif;background:var(--bg);color:var(--tx);line-height:1.9}
 a{color:inherit;text-decoration:none;cursor:pointer}img{max-width:100%;height:auto}
 .nav{position:sticky;top:0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:6px 5%;background:#fffffff2;backdrop-filter:blur(10px);box-shadow:0 2px 20px #0a7a3518}
 .nav nav{display:flex;gap:22px;align-items:center;font-weight:600}.nav a.active:not(.btn){color:var(--g2)}
