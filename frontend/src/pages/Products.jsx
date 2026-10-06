@@ -1,7 +1,9 @@
-import { Link } from "react-router-dom"; import { usePage } from "../content";
+import { useEffect } from "react"; import { Link } from "react-router-dom"; import { usePage } from "../content";
 
 export default function Products() {
   const p = usePage("products");
+  useEffect(() => { const io = new IntersectionObserver(es => es.forEach(e => e.isIntersecting && e.target.classList.add("in")), { threshold: .15 });
+    document.querySelectorAll(".rv").forEach(el => io.observe(el)); return () => io.disconnect(); }, [p]);
   return (<main className="pg"><div className="grid-bg"/><div className="wrap">
     <header className="ph"><span className="eyebrow">محصولات</span><h1 className="gt">{p.title}</h1><p>{p.intro}</p></header>
     <div className="pgrid">
