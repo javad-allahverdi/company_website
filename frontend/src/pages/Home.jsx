@@ -39,7 +39,7 @@ const ARTS = [A1, A2, A3];
 const tech = ["Artificial Intelligence", "Internet of Things", "Cloud", "Big Data", "Cyber Security", "Machine Learning", "Computer Vision", "Edge Computing", "Smart City", "Industry 4.0"];
 
 export default function Home() {
-  const h = usePage("home"); const [i, setI] = useState(0); const n = h.slides.length;
+  const h = usePage("home"); const pr = usePage("products"); const [i, setI] = useState(0); const n = h.slides.length;
   useEffect(() => { const t = setTimeout(() => setI(x => (x + 1) % n), 7000); return () => clearTimeout(t); }, [i, n]);
   useEffect(() => { const io = new IntersectionObserver(es => es.forEach(e => e.isIntersecting && e.target.classList.add("in")), { threshold: .15 });
     document.querySelectorAll(".rv").forEach(el => io.observe(el)); return () => io.disconnect(); }, [h]);
@@ -56,6 +56,11 @@ export default function Home() {
     <section className="sec2"><span className="eyebrow">حوزه‌های فعالیت</span><h2 className="gt">خدمات ما</h2><p className="sub2">راهکارهای هوشمند، متناسب با نیاز شما</p>
       <div className="g3">{h.services.map((s, k) => <article className="gc rv" style={{ transitionDelay: (k % 3) * .1 + "s" }} key={s.t}>
         <span className="num">{(k + 1).toLocaleString("fa-IR", { minimumIntegerDigits: 2 })}</span><div className="gi">{s.i}</div><h3>{s.t}</h3><p>{s.d}</p></article>)}</div></section>
+    <section className="sec2"><span className="eyebrow">محصولات</span><h2 className="gt">{pr.title}</h2><p className="sub2">{pr.intro}</p>
+      <div className="g3">{(pr.items || []).slice(0, 6).map((it, k) => <article className="gc rv" style={{ transitionDelay: (k % 3) * .1 + "s" }} key={it.t || k}>
+        {it.img ? <img className="pimg" src={it.img} alt=""/> : <div className="gi">{it.i}</div>}<h3>{it.t}</h3><p>{it.tag || it.d}</p>
+        <Link to="/products" className="lnk pmore">مشاهده جزئیات ←</Link></article>)}</div>
+      <div className="more"><Link to="/products" className="btn lime">مشاهده همه محصولات</Link></div></section>
     <section className="cta2 rv"><div className="aur"/><h2>{h.cta}</h2><p>کارشناسان ما آماده‌اند تا ایده‌ی شما را به یک راهکار هوشمند تبدیل کنند.</p><Link to="/contact" className="btn lime">با ما تماس بگیرید</Link></section>
   </div>);
 }

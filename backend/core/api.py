@@ -76,7 +76,7 @@ def register(request):
 
 @api_view(["GET", "PUT"])
 def page(request, slug):
-    if slug not in ("home", "about", "contact", "site"): return Response(status=404)
+    if slug not in ("home", "about", "contact", "site", "products"): return Response(status=404)
     obj, _ = Page.objects.get_or_create(slug=slug)
     if request.method == "PUT":
         if not (can(request.user, "pages")): return Response(status=403)

@@ -125,3 +125,24 @@ input:focus,textarea:focus,select:focus{outline:2px solid #8cd04a88}option{backg
 .nav>a img{height:42px;width:auto;max-width:none;display:block;object-fit:contain}
 .sl-logo{border-radius:0;padding:0;display:flex;justify-content:center}
 .sl-logo img{height:44px;width:auto;max-width:none;display:block;object-fit:contain}
+
+/* ===== v9: products ===== */
+.pgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:24px;text-align:right}
+.pcard{position:relative;display:flex;flex-direction:column;gap:10px;padding:30px 28px;border-radius:26px;background:linear-gradient(160deg,#ffffff14,#ffffff05);border:1px solid #ffffff1c;transition:transform .4s,border-color .4s,box-shadow .4s,opacity .8s}
+.pcard:hover{transform:translateY(-6px);border-color:#8cd04a99;box-shadow:0 30px 60px #2e9e3f33}
+.pcard h2{font-size:1.35rem;font-weight:800;line-height:1.5}
+.pcard .gi{width:56px;height:56px;border-radius:16px;font-size:1.7rem}
+.pimg{width:100%;height:150px;object-fit:cover;border-radius:16px;border:1px solid #ffffff1c}
+.ptag{color:#22d3ee;font-size:.85rem;font-weight:600}
+.pd{opacity:.75}
+.feats{list-style:none;padding:0;margin:4px 0 0;display:flex;flex-direction:column;gap:8px}
+.feats li{position:relative;padding-inline-start:24px;font-size:.95rem;opacity:.9}
+.feats li::before{content:"✓";position:absolute;inset-inline-start:0;color:#8cd04a;font-weight:800}
+.plans{display:flex;flex-wrap:wrap;gap:12px;margin-top:6px}
+.plan{flex:1 1 150px;min-width:150px;padding:14px 16px;border-radius:16px;background:#ffffff0d;border:1px dashed #8cd04a55}
+.plan-h{display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap}
+.plan b{font-size:1rem}.pprice{color:#b6e36b;font-weight:700;font-size:.9rem}
+.plan ul{margin:8px 0 0;padding-inline-start:18px;font-size:.85rem;opacity:.8}
+.pbtns{display:flex;gap:10px;flex-wrap:wrap;margin-top:auto;padding-top:14px}
+.pmore{display:inline-block;margin-top:8px;font-size:.9rem}
+.more{text-align:center;margin-top:40px}

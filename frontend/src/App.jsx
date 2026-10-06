@@ -1,5 +1,5 @@
 import { useState, lazy, Suspense } from "react"; import { Routes, Route, NavLink, Link, useLocation } from "react-router-dom";
-import Home from "./pages/Home"; import api from "./api"; import { usePage } from "./content";
+import Home from "./pages/Home"; import Products from "./pages/Products"; import api from "./api"; import { usePage } from "./content";
 const Panel = lazy(() => import("./pages/Panel"));
 const Hero = ({ eyebrow, title, text }) => (<header className="ph"><span className="eyebrow">{eyebrow}</span><h1 className="gt">{title}</h1><p>{text}</p></header>);
 
@@ -30,8 +30,8 @@ export default function App() {
   const site = usePage("site"); const inPanel = useLocation().pathname.startsWith("/panel");
   return (<>
     {!inPanel && <header className="nav"><Link to="/"><img src={site.logo || "/logo.webp"} alt="هوشمند فناوران برتر ایرانیان" height="42"/></Link>
-      <nav><NavLink to="/" end>خانه</NavLink><NavLink to="/about">درباره ما</NavLink><NavLink to="/contact">تماس با ما</NavLink><NavLink to="/panel" className="btn sm">پنل کاربری</NavLink></nav></header>}
+      <nav><NavLink to="/" end>خانه</NavLink><NavLink to="/products">محصولات</NavLink><NavLink to="/about">درباره ما</NavLink><NavLink to="/contact">تماس با ما</NavLink><NavLink to="/panel" className="btn sm">پنل کاربری</NavLink></nav></header>}
     <Suspense fallback={<div className="page">در حال بارگذاری…</div>}>
-      <Routes><Route path="/" element={<Home/>}/><Route path="/about" element={<About/>}/><Route path="/contact" element={<Contact/>}/><Route path="/panel" element={<Panel/>}/></Routes></Suspense>
+      <Routes><Route path="/" element={<Home/>}/><Route path="/about" element={<About/>}/><Route path="/products" element={<Products/>}/><Route path="/contact" element={<Contact/>}/><Route path="/panel" element={<Panel/>}/></Routes></Suspense>
     {!inPanel && <footer className="foot">© شرکت هوشمند فناوران برتر ایرانیان</footer>}</>);
 }

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"; import { Link } from "react-router-dom"; import api from "../api"; import { defaults } from "../content";
 const fa = { open: "باز", pending: "در حال بررسی", closed: "بسته" };
-const lbl = { t: "عنوان", d: "توضیح", i: "آیکون", n: "عدد", l: "برچسب", title: "عنوان صفحه", text: "متن", intro: "مقدمه", phone: "تلفن", email: "ایمیل", address: "آدرس", cta: "متن دعوت به اقدام", slides: "اسلایدها", services: "خدمات", stats: "آمار", cards: "کارت‌ها" };
-const blank = v => typeof v === "string" ? "" : Object.fromEntries(Object.entries(v).map(([k, x]) => [k, blank(x)]));
+const lbl = { t: "عنوان", d: "توضیح", i: "آیکون", n: "عدد", l: "برچسب", title: "عنوان صفحه", text: "متن", intro: "مقدمه", phone: "تلفن", email: "ایمیل", address: "آدرس", cta: "متن دعوت به اقدام", slides: "اسلایدها", services: "خدمات", stats: "آمار", cards: "کارت‌ها", items: "محصولات", tag: "شعار", features: "ویژگی‌ها", plans: "پلن‌ها", demoUrl: "لینک دمو", buyUrl: "لینک خرید/اشتراک", name: "نام پلن", price: "قیمت", period: "دوره" };
+const blank = v => (v == null || typeof v === "string") ? "" : Object.fromEntries(Object.entries(v).map(([k, x]) => [k, blank(x)]));
 function Img({ v, set, k }) {
   const up = async e => { const fd = new FormData(); fd.append("file", e.target.files[0]); const r = await api.post("upload/", fd); set(r.data.url); };
   return <div className="fld"><span>{k === "logo" ? "لوگوی سایت (خالی = لوگوی پیش‌فرض)" : "تصویر اسلاید (اختیاری)"}</span>{v && <img className="pv" src={v} alt=""/>}
@@ -31,7 +31,7 @@ function Editor() {
   const [slug, setSlug] = useState("home"); const [d, setD] = useState(null); const [m, setM] = useState("");
   useEffect(() => { setD(null); setM(""); api.get(`pages/${slug}/`).then(r => { const x = { ...defaults[slug], ...r.data }; if (slug === "home") x.slides = x.slides.map(s => ({ img: "", ...s })); setD(x); }); }, [slug]);
   const save = async () => { await api.put(`pages/${slug}/`, d); setM("✓ ذخیره شد"); };
-  return (<div><div className="tabs">{[["home", "صفحه اول"], ["about", "درباره ما"], ["contact", "تماس با ما"], ["site", "لوگوی سایت"]].map(([s, t]) => <button key={s} className={slug === s ? "act" : ""} onClick={() => setSlug(s)}>{t}</button>)}</div>
+  return (<div><div className="tabs">{[["home", "صفحه اول"], ["products", "محصولات"], ["about", "درباره ما"], ["contact", "تماس با ما"], ["site", "لوگوی سایت"]].map(([s, t]) => <button key={s} className={slug === s ? "act" : ""} onClick={() => setSlug(s)}>{t}</button>)}</div>
     {d && <div className="card"><Fields v={d} set={setD}/><button className="btn" onClick={save}>ذخیره تغییرات</button> <span className="ok">{m}</span></div>}</div>);
 }
 function Users({ me }) {
